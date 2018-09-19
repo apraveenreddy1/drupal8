@@ -1,0 +1,7 @@
+jobs_controller.jobs_list:
+  path: '/jobs'
+  defaults:
+    _controller: '\Drupal\jobs_controller\Controller\JobsController::page'
+    _title: 'Our custom Jobs list'
+  requirements:
+    _permission: 'access content'

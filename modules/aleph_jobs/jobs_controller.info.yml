@@ -1,0 +1,4 @@
+name: aleph_jobs
+description: aleph_jobs module
+type: module
+core: 8.x

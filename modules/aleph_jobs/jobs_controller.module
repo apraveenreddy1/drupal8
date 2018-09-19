@@ -1,0 +1,10 @@
+<?php
+
+function jobs_controller_theme($existing, $type, $theme, $path) {
+
+   return array(
+    'AlephStrap' => array(
+      'variables' => array('items' => array(), 'title' => '', 'company' => '', 'description' => '')
+    )
+  ); 
+}

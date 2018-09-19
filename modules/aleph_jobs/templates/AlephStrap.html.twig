@@ -1,0 +1,84 @@
+<h4>{{ title }}</h4>
+<style>
+table {
+    width:100%;
+    border: 2px solid #ddd;
+}
+tr {
+    border-bottom: 0px solid #ccc;
+    padding: 0.1em 0.6em;
+    background: #fff;
+}
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+table#t01 tr:nth-child(even) {
+    background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+   background-color: #fff;
+}
+table#t01 th {
+    background-color: black;
+    color: white;
+}
+
+.btn{
+	float: right;
+    background-color: mediumseagreen;
+    color: #fff;
+    height: 30px;
+    width: 150px;
+}
+</style>
+
+{% for article in items %}
+<table>
+	<tr>
+  		<td><h2>{{ article.title }}</h2></td>
+  		<td><button class="btn">{{ article.type }}</button></td>
+ 	</tr>
+ 	<tr>
+  		<td>@ {{ article.company }} | {{ article.location }}</td>
+  		<td></td>
+ 	</tr>
+ 	<tr>
+  		<td>Published {{ article.created_at }}</td>
+  		<td></td>
+ 	</tr>
+ 	<tr>
+  		<td colspan="2">
+
+  		<a href="javascript:void(0);" id="show_more{{ article.id }}" onclick="showml('content{{ article.id }}','show_more{{ article.id }}')">More info</a>
+  		<div id="content{{ article.id }}" style="display: none;">
+      		{{ article.description }}
+		</div>
+
+  		</td>
+ 	</tr>
+</table>
+{% endfor %}
+
+
+<script>
+
+    function showml(divId,inhtmText) 
+     {  
+        var x = document.getElementById(divId).style.display; 
+
+        if(x=="block")
+        {
+          document.getElementById(divId).style.display = "none";
+          document.getElementById(inhtmText).innerHTML="Show More...";
+        }
+       if(x=="none")
+       {
+          document.getElementById(divId).style.display = "block";
+          document.getElementById(inhtmText).innerHTML="Show Less";
+        }
+     }
+
+</script>
+
